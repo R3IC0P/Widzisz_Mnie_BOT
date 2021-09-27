@@ -4,10 +4,11 @@ const { Routes } = require('discord-api-types/v9');
 const { clientId, guildId, token } = require('./config.json');
 
 const commands = [
-	new SlashCommandBuilder().setName('ping').setDescription('Replies with pong!'),
-	new SlashCommandBuilder().setName('server').setDescription('Replies with server info!'),
-	new SlashCommandBuilder().setName('user').setDescription('Replies with user info!'),
-    new SlashCommandBuilder().setName('cycunie').setDescription('Randomowe zdjęcie cycuni!'),
+	new SlashCommandBuilder().setName('ping').setDescription('Pong!'),
+	new SlashCommandBuilder().setName('server').setDescription('Pokazuje nazwę serwera i ilość członków.'),
+	new SlashCommandBuilder().setName('user').setDescription('Pokazuje twój nick i ID.'),
+    new SlashCommandBuilder().setName('image').setDescription('Losowe zdjęcie z wpisanego tematu!'),
+    new SlashCommandBuilder().setName('widzisz_mnie').setDescription('Ee..kur widzisz mnie?'),
 ]
 	.map(command => command.toJSON());
 
