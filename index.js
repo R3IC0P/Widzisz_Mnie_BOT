@@ -19,14 +19,28 @@ client.on('interactionCreate', async interaction => {
 	const { commandName } = interaction;
 
 	if (commandName === 'ping') {
-		await interaction.reply('Pong!');
-	} else if (commandName === 'server') {
-		await interaction.reply(`Nazwa serwera: ${interaction.guild.name}\nIlość członków: ${interaction.guild.memberCount}`);
-	} else if (commandName === 'user') {
-		await interaction.reply(`Nazwa użytkownika: ${interaction.user.tag}\nTwoje id: ${interaction.user.id}`);
-	} else if (commandName === 'image') {
-        await interaction.reply('Losowe zdjęcia są w trakcie budowy ;)');
-    } else if (commandName === 'widzisz_mnie') {
+		await interaction.reply({
+			content: 'Pong!'
+		});
+	}
+	else if (commandName === 'server') {
+		await interaction.reply({
+			content: `Nazwa serwera: ${interaction.guild.name}\nIlość członków: ${interaction.guild.memberCount}`,
+			ephemeral: true
+		});
+	}
+	else if (commandName === 'user') {
+		await interaction.reply({
+			content: `Nazwa użytkownika: ${interaction.user.tag}\nTwoje id: ${interaction.user.id}`,
+			ephemeral: true
+		});
+	}
+	else if (commandName === 'image') {
+        await interaction.reply({
+			content: 'Losowe zdjęcia są w trakcie budowy ;)'
+		});
+    }
+	else if (commandName === 'widzisz_mnie') {
 		await interaction.reply('Widzisz mnie?');
 		const widziszMnie = new MessageEmbed()
 			.setColor('#00fff0')
