@@ -5,10 +5,14 @@ const { Interaction } = require('discord.js');
 const { clientId, guildId, token } = require('./config.json');
 
 const commands = [
-	new SlashCommandBuilder().setName('ping').setDescription('Pong!'),
-	new SlashCommandBuilder().setName('server').setDescription('Pokazuje nazwę serwera i ilość członków.'),
-	new SlashCommandBuilder().setName('user').setDescription('Pokazuje twój nick i ID.'),
-    new SlashCommandBuilder().setName('image').setDescription('Losowe zdjęcie z wpisanego tematu!'),
+    new SlashCommandBuilder()
+		.setName('image')
+		.setDescription('Losowe zdjęcie z wpisanego tematu!')
+		.addStringOption(option =>
+			option
+				.setName('kategoria')
+				.setDescription('wpisz słowo kluczowe')
+		),
     new SlashCommandBuilder().setName('widzisz_mnie').setDescription('Srebrny Brek - widzisz mnie?'),
 	new SlashCommandBuilder()
 		.setName('info')
@@ -19,7 +23,7 @@ const commands = [
 				.setDescription('Inforamcje na temat użytkownika')
 				.addUserOption(option => 
 					option
-						.setName('target')
+						.setName('nick')
 						.setDescription('Użytkownik')
 				)
 		)

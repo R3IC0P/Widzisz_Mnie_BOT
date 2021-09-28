@@ -22,26 +22,10 @@ client.on('interactionCreate', async interaction => {
 
 	const { commandName } = interaction;
 
-	if (commandName === 'ping') {
-		await interaction.reply({
-			content: 'Pong!'
-		});
-	}
-	else if (commandName === 'server') {
-		await interaction.reply({
-			content: `Nazwa serwera: ${interaction.guild.name}\nIlość członków: ${interaction.guild.memberCount}`,
-			ephemeral: true
-		});
-	}
-	else if (commandName === 'user') {
-		await interaction.reply({
-			content: `Nazwa użytkownika: ${interaction.user.tag}\nTwoje id: ${interaction.user.id}`,
-			ephemeral: true
-		});
-	}
-	else if (commandName === 'image') {
+	if (commandName === 'image') {
+		const search = interaction.options.getString('kategoria');
         await interaction.reply({
-			content: 'Losowe zdjęcia są w trakcie budowy ;)'
+			content: `https://imgur.com/search/score/all?q_type=png&q_all=${search}`
 		});
     }
 	else if (commandName === 'widzisz_mnie') {
@@ -57,7 +41,7 @@ client.on('interactionCreate', async interaction => {
 	}
 	else if (commandName === 'info') {
 		if (interaction.options.getSubcommand() == 'user') {
-			const user = interaction.options.getUser('target');
+			const user = interaction.options.getUser('nick');
 			if (user) {
 				const userTargetEmbed = new MessageEmbed()
 					.setColor('#00fff0')
